@@ -8,7 +8,13 @@ module.exports = {
   devtool: 'cheap-module-source-map',
   devServer: {
     compress: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        pathRewrite: {'^/api' : ''}
+      }
+    }
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -45,6 +51,7 @@ module.exports = {
       Containers: path.resolve(__dirname, 'src/containers/'),
       Components: path.resolve(__dirname, 'src/components/'),
       Actions: path.resolve(__dirname, 'src/actions/'),
+      Selectors: path.resolve(__dirname, 'src/selectors/'),
       Config: path.resolve(__dirname, 'src/config/'),
       Img: path.resolve(__dirname, 'src/img/')
     }

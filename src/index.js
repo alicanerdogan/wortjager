@@ -10,7 +10,7 @@ import App from './App';
 import reducer from './reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(combineReducers({ reducer }), composeEnhancers(applyMiddleware(thunkMiddleware)));
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunkMiddleware)));
 
 function loggedIn() {
   const state = store.getState();

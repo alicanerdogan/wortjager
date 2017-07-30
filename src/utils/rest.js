@@ -2,13 +2,16 @@ import { createAction } from './helper';
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-export function createRESTCall(endpoint, method = 'GET', options = {}) {
+export function createRESTCall(endpoint, method = 'GET', options = {}, responseParser) {
   options = Object.assign({}, { method }, options);
   options.headers = Object.assign({}, { 'Content-Type': 'application/json' }, options.headers);
   if (options.body) {
     options.body = JSON.stringify(options.body);
   }
   return fetch(endpoint, options).then(function(response) {
+    if (responseParser) {
+      return responseParser(response);
+    }
     if (response.status >= 400 || response.status < 200) {
       throw new Error(`Failed request. Respons status: ${response.status}`);
     }
@@ -16,10 +19,10 @@ export function createRESTCall(endpoint, method = 'GET', options = {}) {
   });
 }
 
-export function createRESTCallAction(asyncActionType, endpoint, callType, options, callback) {
+export function createRESTCallAction(asyncActionType, endpoint, httpMethod, options, callback, responseParser) {
   return dispatch => {
     dispatch(createAction(asyncActionType.default));
-    return createRESTCall(endpoint, callType, options)
+    return createRESTCall(endpoint, httpMethod, options, responseParser)
       .then(payload => {
         dispatch(createAction(asyncActionType.success, payload));
         return payload;

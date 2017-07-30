@@ -1,0 +1,20 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "taskName": "format",
+      "command": "yarn format",
+      "type": "shell"
+    },
+    {
+      "taskName": "start",
+      "command": "yarn start",
+      "type": "shell"
+    },
+    {
+      "taskName": "backend",
+      "command": "yarn backend",
+      "type": "shell"
+    }
+  ]
+}
