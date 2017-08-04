@@ -1,6 +1,10 @@
 import React, { PureComponent } from 'react';
 
 export default class Verb extends PureComponent {
+  componentDidMount() {
+    this.refs.answer.focus();
+  }
+
   constructor(props) {
     super(props);
 

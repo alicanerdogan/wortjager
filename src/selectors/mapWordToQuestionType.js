@@ -11,7 +11,7 @@ export default word => {
 };
 
 const Q_TYPES = {
-  verb: ['translation', 'prateritum', 'pp'],
+  verb: ['translation', 'preterite', 'pp'],
   noun: ['translation', 'artikel', 'plural']
 };
 

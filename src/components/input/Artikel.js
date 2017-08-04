@@ -3,6 +3,10 @@ import React, { PureComponent } from 'react';
 const artikels = ['der', 'die', 'das'];
 
 export default class Artikel extends PureComponent {
+  componentDidMount() {
+    this.refs.form.focus();
+  }
+
   onKeyDown(event) {
     if (this.props.disabled) {
       return;

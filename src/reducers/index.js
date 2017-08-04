@@ -16,7 +16,7 @@ export default (state = DEFAULT_STATE, action) => {
         word,
         totalCount,
         questionType,
-        pageIndex: state.pageIndex + 1,
+        pageIndex: (state.pageIndex + 1) % totalCount,
         isAnswerCorrect: null
       });
     case ANSWER_CORRECT:
