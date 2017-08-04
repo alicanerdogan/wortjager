@@ -13,7 +13,7 @@ export default class Word extends PureComponent {
   }
 
   checkAnswer(answer) {
-    this.props.createAndCheckAnswer(answer);
+    this.props.checkAnswer(answer);
   }
 
   onAnswerSubmit(answer) {

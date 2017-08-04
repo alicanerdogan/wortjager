@@ -1,28 +1,20 @@
 import { connect } from 'react-redux';
 
 import Question from 'Components/Question';
-import mapStateToQuestionType from 'Selectors/mapStateToQuestionType';
 import { getWord } from 'Actions/api';
-import { createAndCheckAnswer } from 'Actions/flow';
+import { createAndCheckAnswer, getQuestion } from 'Actions/flow';
 
-const mapStateToProps = state => {
-  return {
-    word: state.word,
-    questionType: mapStateToQuestionType(state),
-    isAnswerCorrect: state.isAnswerCorrect,
-    pageIndex: state.pageIndex,
-    totalCount: state.totalCount
-  };
-};
+const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
-  getWord: () => dispatch(getWord()),
-  createAndCheckAnswer: (answer, word) => dispatch(createAndCheckAnswer(answer, word)),
-  getWordByIndex: index => dispatch(getWord(index))
+  getQuestion: () => dispatch(getQuestion()),
+  createAndCheckAnswer: (answer, word, questionType) => dispatch(createAndCheckAnswer(answer, word, questionType)),
+  getQuestionByIndex: wordIndex => dispatch(getQuestion(wordIndex))
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  dispatchProps.getNextWord = () => dispatchProps.getWordByIndex(stateProps.pageIndex + 1);
+  dispatchProps.getNextQuestion = () => dispatchProps.getQuestionByIndex(stateProps.pageIndex + 1);
+  dispatchProps.checkAnswer = (answer) => dispatchProps.createAndCheckAnswer(answer, stateProps.word, stateProps.questionType);
   return Object.assign({}, ownProps, stateProps, dispatchProps);
 };
 

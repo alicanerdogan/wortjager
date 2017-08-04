@@ -36,7 +36,7 @@ function mapToDetails(word) {
   }
 }
 
-export default ({ word, isAnswerCorrect, getNextWord }) => {
+export default ({ word, isAnswerCorrect, getNextQuestion }) => {
   return (
     <div>
       <h2>
@@ -52,7 +52,7 @@ export default ({ word, isAnswerCorrect, getNextWord }) => {
           <AutoButton
             className="btn btn-primary"
             labelTemplate={countdown => `Find in ${countdown}`}
-            onClick={() => getNextWord()}
+            onClick={() => getNextQuestion()}
           />
         </div>
       </div>

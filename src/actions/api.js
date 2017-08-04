@@ -10,21 +10,19 @@ export function getWord(index) {
     undefined,
     undefined,
     undefined,
-    response => {
-      return response.json().then(json => {
-        return {
-          word: json[0],
-          totalCount: response.headers.get('X-Total-Count')
-        };
-      });
-    }
+    response => response.json().then(json => ({
+      word: json[0],
+      totalCount: response.headers.get('X-Total-Count')
+    }))
   );
 }
 
-export function createAnswer(answer) {
+export function createAnswer(answer, wordId, questionType) {
   return createRESTCallAction(CREATE_ANSWER, `${HOSTNAME}/answers`, 'POST', {
     body: {
       answer,
+      wordId,
+      questionType,
       createdAt: new Date().toISOString()
     }
   });

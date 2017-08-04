@@ -27,11 +27,7 @@ export function createRESTCallAction(asyncActionType, endpoint, httpMethod, opti
         dispatch(createAction(asyncActionType.success, payload));
         return payload;
       })
-      .then(payload => {
-        if (callback) {
-          return callback(payload, dispatch);
-        }
-      })
+      .then(payload => callback ? callback(payload, dispatch) : payload)
       .catch(error => dispatch(createAction(asyncActionType.failure, error)));
   };
 }

@@ -30,94 +30,11 @@
   ],
   "answers": [
     {
-      "answer": "victory",
-      "createdAt": "2017-07-30T13:32:07.428Z",
-      "id": 1
-    },
-    {
-      "answer": "der",
-      "createdAt": "2017-07-30T13:43:26.909Z",
-      "id": 2
-    },
-    {
-      "answer": "Siege",
-      "createdAt": "2017-07-30T13:44:52.655Z",
-      "id": 3
-    },
-    {
-      "answer": "der",
-      "createdAt": "2017-07-30T13:47:01.553Z",
-      "id": 4
-    },
-    {
-      "answer": "Sieg",
-      "createdAt": "2017-07-30T21:19:28.768Z",
-      "id": 5
-    },
-    {
-      "answer": "victory",
-      "createdAt": "2017-07-30T21:32:45.457Z",
-      "id": 6
-    },
-    {
-      "answer": "aa",
-      "createdAt": "2017-07-30T21:33:43.070Z",
-      "id": 7
-    },
-    {
       "answer": "a",
-      "createdAt": "2017-07-30T21:34:05.001Z",
-      "id": 8
-    },
-    {
-      "answer": "victory",
-      "createdAt": "2017-07-30T21:35:02.684Z",
-      "id": 9
-    },
-    {
-      "answer": "win",
-      "createdAt": "2017-07-30T21:35:16.126Z",
-      "id": 10
-    },
-    {
-      "answer": "victory",
-      "createdAt": "2017-07-30T21:37:10.381Z",
-      "id": 11
-    },
-    {
-      "answer": "win",
-      "createdAt": "2017-07-30T21:37:17.312Z",
-      "id": 12
-    },
-    {
-      "answer": "victory",
-      "createdAt": "2017-07-30T21:40:00.722Z",
-      "id": 13
-    },
-    {
-      "answer": "win",
-      "createdAt": "2017-07-30T21:40:07.227Z",
-      "id": 14
-    },
-    {
-      "answer": "victory",
-      "createdAt": "2017-07-30T21:41:08.603Z",
-      "id": 15
-    },
-    {
-      "answer": "win",
-      "createdAt": "2017-07-30T21:41:13.253Z",
-      "id": 16
-    },
-    {
-      "answer": "der",
-      "createdAt": "2017-07-30T21:49:18.096Z",
-      "id": 17
-    },
-    {
-      "answer": "gewonnen",
-      "createdAt": "2017-07-30T21:49:28.416Z",
-      "id": 18
+      "wordId": 1,
+      "questionType": "plural",
+      "createdAt": "2017-08-04T11:39:08.848Z",
+      "id": 1
     }
   ]
 }

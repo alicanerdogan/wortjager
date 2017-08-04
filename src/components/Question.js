@@ -5,19 +5,19 @@ import Answer from './Answer';
 
 export default class Question extends Component {
   componentDidMount() {
-    this.props.getWord();
+    this.props.getNextQuestion();
   }
 
   render() {
-    const { word, questionType, isAnswerCorrect, createAndCheckAnswer, getNextWord } = this.props;
+    const { word, questionType, isAnswerCorrect, checkAnswer, getNextQuestion } = this.props;
     if (!word) {
       return null;
     }
     return (
       <div>
         {isAnswerCorrect === null
-          ? <Word word={word} qType={questionType} createAndCheckAnswer={createAndCheckAnswer} />
-          : <Answer word={word} isAnswerCorrect={isAnswerCorrect} getNextWord={getNextWord} />}
+          ? <Word word={word} qType={questionType} checkAnswer={checkAnswer} />
+          : <Answer word={word} isAnswerCorrect={isAnswerCorrect} getNextQuestion={getNextQuestion} />}
       </div>
     );
   }
