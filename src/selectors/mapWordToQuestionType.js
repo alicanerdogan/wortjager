@@ -1,4 +1,4 @@
-export default (word) => {
+export default word => {
   if (!word) {
     return null;
   }

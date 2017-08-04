@@ -14,7 +14,8 @@ const mapDispatchToProps = dispatch => ({
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   dispatchProps.getNextQuestion = () => dispatchProps.getQuestionByIndex(stateProps.pageIndex + 1);
-  dispatchProps.checkAnswer = (answer) => dispatchProps.createAndCheckAnswer(answer, stateProps.word, stateProps.questionType);
+  dispatchProps.checkAnswer = answer =>
+    dispatchProps.createAndCheckAnswer(answer, stateProps.word, stateProps.questionType);
   return Object.assign({}, ownProps, stateProps, dispatchProps);
 };
 

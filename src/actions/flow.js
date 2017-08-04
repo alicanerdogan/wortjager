@@ -25,12 +25,14 @@ export function getQuestion(wordIndex) {
     dispatch(createAction(GET_QUESTION.default));
     return getWord(wordIndex)(dispatch)
       .then(({ word, totalCount }) => {
-        dispatch(createAction(GET_QUESTION.success, {
-          word,
-          totalCount,
-          questionType: mapWordToQuestionType(word)
-        }));
+        dispatch(
+          createAction(GET_QUESTION.success, {
+            word,
+            totalCount,
+            questionType: mapWordToQuestionType(word)
+          })
+        );
       })
       .catch(() => dispatch(createAction(GET_QUESTION.failure)));
-  }
+  };
 }

@@ -10,10 +10,11 @@ export function getWord(index) {
     undefined,
     undefined,
     undefined,
-    response => response.json().then(json => ({
-      word: json[0],
-      totalCount: response.headers.get('X-Total-Count')
-    }))
+    response =>
+      response.json().then(json => ({
+        word: json[0],
+        totalCount: response.headers.get('X-Total-Count')
+      }))
   );
 }
 
