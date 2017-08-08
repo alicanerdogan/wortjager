@@ -27,6 +27,10 @@ export default class AutoButton extends PureComponent {
     this.props.onClick && this.props.onClick(event);
   }
 
+  focus() {
+    this.refs.btn.focus();
+  }
+
   static sanitizeProps(props) {
     const buttonProps = Object.assign({}, props);
     delete buttonProps.countdown;
@@ -37,7 +41,7 @@ export default class AutoButton extends PureComponent {
   render() {
     const { labelTemplate } = this.props;
     return (
-      <button {...AutoButton.sanitizeProps(this.props)} onClick={e => this.onClick(e)}>
+      <button {...AutoButton.sanitizeProps(this.props)} onClick={e => this.onClick(e)} ref="btn">
         {labelTemplate ? labelTemplate(this.state.countdown) : this.props.children}
       </button>
     );

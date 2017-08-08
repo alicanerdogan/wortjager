@@ -30,10 +30,11 @@
   ],
   "answers": [
     {
-      "answer": "a",
+      "answer": "der",
       "wordId": 1,
-      "questionType": "plural",
-      "createdAt": "2017-08-04T11:39:08.848Z",
+      "questionType": "artikel",
+      "userId": 1,
+      "createdAt": "2017-08-08T20:54:24.816Z",
       "id": 1
     }
   ]

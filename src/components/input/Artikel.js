@@ -13,44 +13,41 @@ export default class Artikel extends PureComponent {
     }
     switch (event.key) {
       case '1':
-        this.refs.der.checked = true;
+        this.props.onSubmit('der');
         break;
       case '2':
-        this.refs.die.checked = true;
+        this.props.onSubmit('die');
         break;
       case '3':
-        this.refs.das.checked = true;
-        break;
-      case 'Enter':
-        const answer = this.getAnswer();
-        answer && this.props.onSubmit && this.props.onSubmit(answer);
+        this.props.onSubmit('das');
         break;
       default:
         break;
     }
   }
 
-  getAnswer() {
-    if (this.refs.der.checked) {
-      return 'der';
-    }
-    if (this.refs.die.checked) {
-      return 'die';
-    }
-    if (this.refs.das.checked) {
-      return 'das';
-    }
-    return null;
-  }
-
   render() {
-    const { disabled } = this.props;
+    const { disabled, onSubmit } = this.props;
 
     return (
-      <div ref="form" tabIndex={disabled ? -1 : 0} onKeyDown={event => this.onKeyDown(event)}>
-        <input type="radio" value="der" name="artikel" ref="der" disabled={disabled} /> der
-        <input type="radio" value="die" name="artikel" ref="die" disabled={disabled} /> die
-        <input type="radio" value="das" name="artikel" ref="das" disabled={disabled} /> das
+      <div ref="form" className="input-artikel" tabIndex={disabled ? -1 : 0} onKeyDown={event => this.onKeyDown(event)}>
+        <div className="row">
+          <div className="col-sm-4">
+            <button className="btn btn-block" onClick={() => onSubmit('der')}>
+              <span>1</span>der
+            </button>
+          </div>
+          <div className="col-sm-4">
+            <button className="btn btn-block" onClick={() => onSubmit('die')}>
+              <span>2</span>die
+            </button>
+          </div>
+          <div className="col-sm-4">
+            <button className="btn btn-block" onClick={() => onSubmit('das')}>
+              <span>3</span>das
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

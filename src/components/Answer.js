@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import AutoButton from './AutoButton';
 
 function mapToHeader(word) {
@@ -36,26 +36,30 @@ function mapToDetails(word) {
   }
 }
 
-export default ({ word, isAnswerCorrect, getNextQuestion }) => {
-  return (
-    <div>
-      <h2>
-        {isAnswerCorrect ? 'Richtig' : 'Falsch'}
-      </h2>
-      <div className="_answer card text-center">
-        <div className="card-block">
-          <h4 className="header">
-            {mapToHeader(word)}
-          </h4>
-          {mapToDetails(word)}
-          <p className="translations">{`"${word.translations.join(', ')}"`}</p>
-          <AutoButton
-            className="btn btn-primary"
-            labelTemplate={countdown => `Find in ${countdown}`}
-            onClick={() => getNextQuestion()}
-          />
-        </div>
+export default class Answer extends PureComponent {
+  componentDidMount() {
+    this.refs.skip.focus();
+  }
+
+  render() {
+    const { word, isAnswerCorrect, getNextQuestion } = this.props;
+    return (
+      <div className="answer">
+        <h2 className={isAnswerCorrect ? 'correct' : 'wrong'}>
+          {isAnswerCorrect ? 'Richtig' : 'Falsch'}
+        </h2>
+        <h4 className="header">
+          {mapToHeader(word)}
+        </h4>
+        {mapToDetails(word)}
+        <p className="translations">{`"${word.translations.join(', ')}"`}</p>
+        <AutoButton
+          ref="skip"
+          className="btn btn-primary"
+          labelTemplate={countdown => `Find in ${countdown}`}
+          onClick={() => getNextQuestion()}
+        />
       </div>
-    </div>
-  );
-};
+    );
+  }
+}

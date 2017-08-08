@@ -14,7 +14,7 @@ export default class Question extends Component {
       return null;
     }
     return (
-      <div>
+      <div className="question">
         {isAnswerCorrect === null
           ? <Word word={word} qType={questionType} checkAnswer={checkAnswer} />
           : <Answer word={word} isAnswerCorrect={isAnswerCorrect} getNextQuestion={getNextQuestion} />}

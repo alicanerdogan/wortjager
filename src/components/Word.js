@@ -50,7 +50,7 @@ export default class Word extends PureComponent {
     const { word, qType } = this.props;
 
     return (
-      <div>
+      <div className="word">
         <p>
           {this.getQuestion(word, qType)}
         </p>

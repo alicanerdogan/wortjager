@@ -24,8 +24,9 @@ export default class Verb extends PureComponent {
     const { disabled } = this.props;
 
     return (
-      <div>
+      <div className="input-text">
         <input ref="answer" type="text" onKeyDown={event => this.onKeyDown(event)} disabled={disabled} />
+        <button>→</button>
       </div>
     );
   }

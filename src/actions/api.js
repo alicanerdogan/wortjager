@@ -24,6 +24,7 @@ export function createAnswer(answer, wordId, questionType) {
       answer,
       wordId,
       questionType,
+      userId: 1,
       createdAt: new Date().toISOString()
     }
   });

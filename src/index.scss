@@ -1,11 +1,19 @@
 @import '~bootstrap/scss/bootstrap.scss';
 
+$color-white: white;
+$primary-color: blue;
+$primary-background: #f8f8f8;
+$light-border: #eeeeee;
+$foreground-color: #2F4F4F;
+$light-foreground-color: #abb8b8;
+$transparent: rgba(0, 0, 0, 0.0);
+
 html {
 }
 
 body {
   font-family: sans-serif;
-
+  background: $primary-background;
   #root {
   }
 }
