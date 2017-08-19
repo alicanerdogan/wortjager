@@ -27,7 +27,7 @@ export default (state = DEFAULT_STATE, action) => {
     case SEND_ANSWER.success:
       return Object.assign({}, state, { isAnswerCorrect: action.payload.result });
     case LOGIN.success:
-      const payload = { action };
+      const { payload } = action;
       localStorage.setItem('jwt', payload.jwt);
       localStorage.setItem('jwt-expiration', payload.exp);
       return Object.assign({}, state, { loggedIn: true });
