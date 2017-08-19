@@ -4,7 +4,7 @@ import AutoButton from './AutoButton';
 function mapToHeader(word) {
   switch (word.type) {
     case 'noun':
-      return `${word.artikel} ${word.word}`;
+      return `${word.props.artikel} ${word.word}`;
     default:
       return word.word;
   }
@@ -15,18 +15,18 @@ function mapToDetails(word) {
     case 'noun':
       return (
         <h5 className="plural">
-          {`(${word.plural})`}
+          {`(${word.props.plural})`}
         </h5>
       );
     case 'verb':
       return (
         <div>
           <p>
-            {word.preterite}
+            {word.props.preterite}
             <span className="badge badge-primary">II</span>
           </p>
           <p>
-            {word.pp}
+            {word.props.pp}
             <span className="badge badge-primary">III</span>
           </p>
         </div>
@@ -42,7 +42,7 @@ export default class Answer extends PureComponent {
   }
 
   render() {
-    const { word, isAnswerCorrect, getNextQuestion } = this.props;
+    const { word, isAnswerCorrect, getQuestion } = this.props;
     return (
       <div className="answer">
         <h2 className={isAnswerCorrect ? 'correct' : 'wrong'}>
@@ -57,7 +57,7 @@ export default class Answer extends PureComponent {
           ref="skip"
           className="btn btn-primary"
           labelTemplate={countdown => `Find in ${countdown}`}
-          onClick={() => getNextQuestion()}
+          onClick={() => getQuestion()}
         />
       </div>
     );

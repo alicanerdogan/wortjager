@@ -12,8 +12,8 @@ export default class Word extends PureComponent {
     };
   }
 
-  checkAnswer(answer) {
-    this.props.checkAnswer(answer);
+  sendAnswer(answer) {
+    this.props.sendAnswer(answer);
   }
 
   onAnswerSubmit(answer) {
@@ -22,7 +22,7 @@ export default class Word extends PureComponent {
         answerCommitted: true
       })
     );
-    this.checkAnswer(answer);
+    this.sendAnswer(answer);
   }
 
   getHint(word, qType) {
@@ -30,7 +30,7 @@ export default class Word extends PureComponent {
       return word.word;
     }
     if (word.type === 'noun') {
-      return `${word.artikel} ${word.word}`;
+      return `${word.props.artikel} ${word.word}`;
     }
     return word.word;
   }

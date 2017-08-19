@@ -1,22 +1,16 @@
 import { connect } from 'react-redux';
 
 import Question from 'Components/Question';
-import { getWord } from 'Actions/api';
-import { createAndCheckAnswer, getQuestion } from 'Actions/flow';
+import { sendAnswer, getQuestion } from 'Actions/api';
 
-const mapStateToProps = state => state;
-
-const mapDispatchToProps = dispatch => ({
-  getQuestion: () => dispatch(getQuestion()),
-  createAndCheckAnswer: (answer, word, questionType) => dispatch(createAndCheckAnswer(answer, word, questionType)),
-  getQuestionByIndex: wordIndex => dispatch(getQuestion(wordIndex))
-});
+const mapStateToProps = ({ word, questionType, isAnswerCorrect }) => ({ word, questionType, isAnswerCorrect });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  dispatchProps.getNextQuestion = () => dispatchProps.getQuestionByIndex(stateProps.pageIndex + 1);
-  dispatchProps.checkAnswer = answer =>
-    dispatchProps.createAndCheckAnswer(answer, stateProps.word, stateProps.questionType);
-  return Object.assign({}, ownProps, stateProps, dispatchProps);
+  const { sendAnswer } = dispatchProps;
+  const { word, questionType } = stateProps;
+  return Object.assign({}, ownProps, stateProps, dispatchProps, {
+    sendAnswer: answer => sendAnswer(answer, word.id, questionType)
+  });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Question);
+export default connect(mapStateToProps, { getQuestion, sendAnswer }, mergeProps)(Question);

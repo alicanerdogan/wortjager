@@ -31,3 +31,26 @@ export function createRESTCallAction(asyncActionType, endpoint, httpMethod, opti
       .catch(error => dispatch(createAction(asyncActionType.failure, error)));
   };
 }
+
+export function createAuthorizedRESTAction(asyncActionType, endpoint, httpMethod, options, callback, responseParser) {
+  return dispatch => {
+    const jwt = localStorage.getItem('jwt');
+    const headers = Object.assign({}, { Authorization: `Bearer ${jwt}` }, (options && options.headers) || {});
+    options ? (options.headers = headers) : (options = { headers });
+    const responseParserWrapper = response => {
+      if (response.status === 403) {
+        dispatch('AUTHORIZATION_FAILURE');
+      }
+      if (responseParser) {
+        return responseParser(response);
+      }
+      if (response.status >= 400 || response.status < 200) {
+        throw new Error(`Failed request. Respons status: ${response.status}`);
+      }
+      return response.json();
+    };
+    return createRESTCallAction(asyncActionType, endpoint, httpMethod, options, callback, responseParserWrapper)(
+      dispatch
+    );
+  };
+}
