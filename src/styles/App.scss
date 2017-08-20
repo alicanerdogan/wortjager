@@ -20,10 +20,14 @@
   }
 }
 
+@mixin card {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+  border-radius: 4px;
+  background-color: $white;
+}
+
 .word {
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
-    border-radius: 4px;
-    background-color: $white;
+    @include card;
     padding: 64px 96px;
 
     p {
@@ -112,5 +116,18 @@
   .props p {
     font-size: 24px;
     margin-bottom: 8px;
+  }
+}
+
+.user-management {
+  @include card;
+  padding: 32px;
+
+  h2 {
+    margin-bottom: 16px;
+  }
+
+  button + button {
+    margin-left: 16px;
   }
 }

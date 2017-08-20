@@ -19,9 +19,17 @@ export default class UserManagement extends PureComponent {
   render() {
     const { login, signUp } = this.props;
     const { showSignUp } = this.state;
-    return showSignUp
+    return <div className="row">
+      <div className="col-md-2"></div>
+      <div className="col-md-8">
+        {
+          showSignUp
       ? <SignUp signUp={signUp} showLogin={() => this.showLogin()} />
-      : <Login login={login} showSignUp={() => this.showSignUp()} />;
+      : <Login login={login} showSignUp={() => this.showSignUp()} />
+        }
+      </div>
+      <div className="col-md-2"></div>
+    </div> ;
   }
 }
 
@@ -34,15 +42,18 @@ class Login extends PureComponent {
   render() {
     const { showSignUp } = this.props;
     return (
-      <div>
-        <input type="text" ref="email" />
-        <input type="password" ref="password" />
-        <button className="button primary" onClick={() => this.login()}>
-          Login
-        </button>
-        <button className="button default" onClick={() => showSignUp()}>
-          SignUp
-        </button>
+      <div className="user-management">
+        <h2>Login</h2>
+        <div className="form-group">
+          <label>Email address</label>
+          <input type="email" ref="email" className="form-control"  aria-describedby="emailHelp" placeholder="Enter email"/>
+        </div>
+        <div className="form-group">
+          <label>Password</label>
+          <input type="password" ref="password" className="form-control" placeholder="Password"/>
+        </div>
+        <button className="btn btn-primary btn-lg" onClick={() => this.login()}>Login</button>
+        <button className="btn btn-secondary btn-lg" onClick={() => showSignUp()}>Sign Up</button>
       </div>
     );
   }
@@ -57,15 +68,22 @@ class SignUp extends PureComponent {
   render() {
     const { showLogin } = this.props;
     return (
-      <div>
-        <input type="text" ref="email" />
-        <input type="password" ref="password" />
-        <button className="button primary" onClick={() => this.signUp()}>
-          SignUp
-        </button>
-        <button className="button default" onClick={() => showLogin()}>
-          Login
-        </button>
+      <div className="user-management">
+        <h2>Sign Up</h2>
+        <div className="form-group">
+          <label>Email address</label>
+          <input type="email" ref="email" className="form-control"  aria-describedby="emailHelp" placeholder="Enter email"/>
+        </div>
+        <div className="form-group">
+          <label>Password</label>
+          <input type="password" ref="password" className="form-control" placeholder="Password"/>
+        </div>
+        <div className="form-group">
+          <label>Repeat Password</label>
+          <input type="password" ref="passwordRepeat" className="form-control" placeholder="Repeat Password"/>
+        </div>
+        <button className="btn btn-primary btn-lg" onClick={() => this.signUp()}>Sign Up</button>
+        <button className="btn btn-secondary btn-lg" onClick={() => showLogin()}>Login</button>
       </div>
     );
   }
