@@ -8,5 +8,9 @@
     "**/node_modules": true
   },
   "prettier.printWidth": 120,
-  "prettier.singleQuote": true
+  "prettier.singleQuote": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "emmet.triggerExpansionOnTab": true
 }

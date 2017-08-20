@@ -10,13 +10,13 @@ function mapToHeader(word) {
   }
 }
 
-function mapToDetails(word) {
+function mapToProps(word) {
   switch (word.type) {
     case 'noun':
       return (
-        <h5 className="plural">
+        <p>
           {`(${word.props.plural})`}
-        </h5>
+        </p>
       );
     case 'verb':
       return (
@@ -51,12 +51,16 @@ export default class Answer extends PureComponent {
         <h4 className="header">
           {mapToHeader(word)}
         </h4>
-        {mapToDetails(word)}
-        <p className="translations">{`"${word.translations.join(', ')}"`}</p>
+        <div className="props">
+          {mapToProps(word)}
+          <p className="translations">
+            {`"${word.translations.join(', ')}"`}
+          </p>
+        </div>
         <AutoButton
           ref="skip"
-          className="btn btn-primary"
-          labelTemplate={countdown => `Find in ${countdown}`}
+          className="btn btn-primary btn-lg"
+          labelTemplate={countdown => `Next in ${countdown}`}
           onClick={() => getQuestion()}
         />
       </div>

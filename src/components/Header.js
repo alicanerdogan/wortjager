@@ -1,5 +1,9 @@
 import React from 'react';
 
 export default ({}) => {
-  return <header />;
+  return (
+    <header>
+      <h1>Wortjäger</h1>
+    </header>
+  );
 };

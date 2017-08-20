@@ -1,21 +1,45 @@
-@import '~bootstrap/scss/bootstrap.scss';
 
 $color-white: white;
-$primary-color: blue;
-$primary-background: #f8f8f8;
-$light-border: #eeeeee;
-$foreground-color: #2F4F4F;
-$light-foreground-color: #abb8b8;
+$primary-color: #CE3B38;
+$secondary-color: #CDE9EE;
+$complementary-color: #EA5455;
+$complementary-light-color: #FEB692;
+$accent-color: #eeeeee;
 $transparent: rgba(0, 0, 0, 0.0);
 
+$primary-background: $complementary-color;
+$primary-background-light: $complementary-light-color;
+$light-border: $accent-color;
+$foreground-color: $primary-color;
+$light-foreground-color: $secondary-color;
+
+$theme-colors:  (
+  primary: $primary-background,
+  secondary: $secondary-color,
+  success: $primary-background,
+  info: $primary-background,
+  warning: $primary-background,
+  danger: $primary-background,
+  light: $primary-background,
+  dark: $primary-background
+);
+
+@import '~bootstrap/scss/bootstrap.scss';
+
 html {
+  height: 100%;
 }
 
 body {
-  font-family: sans-serif;
-  background: $primary-background;
-  #root {
-  }
+  height: 100%;
+  font-family: 'Oswald', sans-serif;
+  background: linear-gradient( 135deg, $complementary-light-color 10%, $complementary-color 100%);
+}
+
+h1 {
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
 }
 
 @import './styles/App.scss';

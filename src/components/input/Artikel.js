@@ -33,17 +33,17 @@ export default class Artikel extends PureComponent {
       <div ref="form" className="input-artikel" tabIndex={disabled ? -1 : 0} onKeyDown={event => this.onKeyDown(event)}>
         <div className="row">
           <div className="col-sm-4">
-            <button className="btn btn-block" onClick={() => onSubmit('der')}>
+            <button className="btn btn-block btn-outline-primary btn-lg" onClick={() => onSubmit('der')}>
               <span>1</span>der
             </button>
           </div>
           <div className="col-sm-4">
-            <button className="btn btn-block" onClick={() => onSubmit('die')}>
+            <button className="btn btn-block btn-outline-primary btn-lg" onClick={() => onSubmit('die')}>
               <span>2</span>die
             </button>
           </div>
           <div className="col-sm-4">
-            <button className="btn btn-block" onClick={() => onSubmit('das')}>
+            <button className="btn btn-block btn-outline-primary btn-lg" onClick={() => onSubmit('das')}>
               <span>3</span>das
             </button>
           </div>
