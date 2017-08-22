@@ -15,9 +15,13 @@ export default class Verb extends PureComponent {
 
   onKeyDown(event) {
     if (event.key === 'Enter') {
-      const answer = event.target.value;
-      answer && this.props.onSubmit && this.props.onSubmit(answer);
+      this.onClick();
     }
+  }
+
+  onClick() {
+    const answer = this.refs.answer.value;
+    answer && this.props.onSubmit && this.props.onSubmit(answer);
   }
 
   render() {
@@ -25,7 +29,9 @@ export default class Verb extends PureComponent {
 
     return (
       <div className="input-text">
-        <button className="btn btn-outline-primary">enter</button>
+        <button className="btn btn-outline-primary" onClick={() => this.onClick()}>
+          enter
+        </button>
         <div className="input-container">
           <input ref="answer" type="text" onKeyDown={event => this.onKeyDown(event)} disabled={disabled} />
         </div>
