@@ -31,6 +31,15 @@ export default (state = DEFAULT_STATE, action) => {
       localStorage.setItem('jwt', payload.jwt);
       localStorage.setItem('jwt-expiration', payload.exp);
       return Object.assign({}, state, { loggedIn: true });
+    case 'AUTHORIZATION_FAILURE':
+      localStorage.removeItem('jwt');
+      localStorage.removeItem('jwt-expiration');
+      return {
+        loggedIn: false,
+        word: null,
+        isAnswerCorrect: null,
+        question_type: null
+      };
     default:
       return state;
   }

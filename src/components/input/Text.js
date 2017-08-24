@@ -20,7 +20,7 @@ export default class Verb extends PureComponent {
   }
 
   onClick() {
-    const answer = this.refs.answer.value;
+    const answer = this.refs.answer.value.trim();
     answer && this.props.onSubmit && this.props.onSubmit(answer);
   }
 

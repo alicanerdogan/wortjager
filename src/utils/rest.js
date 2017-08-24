@@ -38,8 +38,8 @@ export function createAuthorizedRESTAction(asyncActionType, endpoint, httpMethod
     const headers = Object.assign({}, { Authorization: `Bearer ${jwt}` }, (options && options.headers) || {});
     options ? (options.headers = headers) : (options = { headers });
     const responseParserWrapper = response => {
-      if (response.status === 403) {
-        dispatch('AUTHORIZATION_FAILURE');
+      if (response.status === 400) {
+        dispatch({ type: 'AUTHORIZATION_FAILURE' });
       }
       if (responseParser) {
         return responseParser(response);
