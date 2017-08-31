@@ -36,7 +36,19 @@ module.exports = {
         })
       },
       {
+        test: /\.(png|svg|jpg|gif|ico|xml|json)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]'
+          }  
+        }
+      },
+      {
         test: /\.(png|svg|jpg|gif)$/,
+        exclude: [
+          path.resolve(__dirname, 'src/assets/icons')
+        ],
         use: [
           'file-loader'
         ]
@@ -45,14 +57,15 @@ module.exports = {
   },
   resolve: {
     alias: {
-      Util: path.resolve(__dirname, 'src/utils/'),
-      Icons: path.resolve(__dirname, 'src/icons/'),
-      Containers: path.resolve(__dirname, 'src/containers/'),
-      Components: path.resolve(__dirname, 'src/components/'),
       Actions: path.resolve(__dirname, 'src/actions/'),
-      Selectors: path.resolve(__dirname, 'src/selectors/'),
+      Assets: path.resolve(__dirname, 'src/assets/'),
+      Components: path.resolve(__dirname, 'src/components/'),
       Config: path.resolve(__dirname, 'src/config/'),
-      Img: path.resolve(__dirname, 'src/img/')
+      Configurations: path.resolve(__dirname, 'src/configurations/'),
+      Containers: path.resolve(__dirname, 'src/containers/'),
+      Img: path.resolve(__dirname, 'src/img/'),
+      Selectors: path.resolve(__dirname, 'src/selectors/'),
+      Util: path.resolve(__dirname, 'src/utils/')
     }
   },
   plugins: [

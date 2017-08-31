@@ -5,6 +5,8 @@ import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
 import './index.scss';
+import 'Assets/icons';
+import 'Configurations';
 
 import App from 'Containers/App';
 import reducer from './reducers';
