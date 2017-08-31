@@ -1,4 +1,4 @@
-import { GET_QUESTION, SEND_ANSWER, ANSWER_CORRECT, ANSWER_WRONG, LOGIN } from 'Actions';
+import { GET_QUESTION, SEND_ANSWER, ANSWER_CORRECT, ANSWER_WRONG, LOGIN, LOGOUT, AUTHORIZATION_FAILURE } from 'Actions';
 
 const jwt = localStorage.getItem('jwt');
 
@@ -31,7 +31,16 @@ export default (state = DEFAULT_STATE, action) => {
       localStorage.setItem('jwt', payload.jwt);
       localStorage.setItem('jwt-expiration', payload.exp);
       return Object.assign({}, state, { loggedIn: true });
-    case 'AUTHORIZATION_FAILURE':
+    case AUTHORIZATION_FAILURE:
+      localStorage.removeItem('jwt');
+      localStorage.removeItem('jwt-expiration');
+      return {
+        loggedIn: false,
+        word: null,
+        isAnswerCorrect: null,
+        question_type: null
+      };
+    case LOGOUT:
       localStorage.removeItem('jwt');
       localStorage.removeItem('jwt-expiration');
       return {

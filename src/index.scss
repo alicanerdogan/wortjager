@@ -42,4 +42,10 @@ h1 {
   margin: 0;
 }
 
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
 @import './styles/App.scss';

@@ -12,11 +12,7 @@ export default class App extends PureComponent {
         <Header />
         <main>
           <div className="container">
-            <div className="row">
-              <div className="col-sm-12">
-                {loggedIn ? <Question /> : <UserManagement signUp={signUp} login={login} />}
-              </div>
-            </div>
+            {loggedIn ? <Question /> : <UserManagement signUp={signUp} login={login} />}
           </div>
         </main>
       </div>
