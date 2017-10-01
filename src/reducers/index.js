@@ -1,4 +1,4 @@
-import { GET_QUESTION, SEND_ANSWER, ANSWER_CORRECT, ANSWER_WRONG, LOGIN, LOGOUT, AUTHORIZATION_FAILURE } from 'Actions';
+import { GET_QUESTION, SEND_ANSWER, ANSWER_CORRECT, ANSWER_WRONG, LOGIN, LOGOUT, AUTHORIZATION_FAILURE, LOGIN_WITH_GOOGLE, SIGN_UP } from 'Actions';
 
 const jwt = localStorage.getItem('jwt');
 
@@ -27,10 +27,16 @@ export default (state = DEFAULT_STATE, action) => {
     case SEND_ANSWER.success:
       return Object.assign({}, state, { isAnswerCorrect: action.payload.result });
     case LOGIN.success:
+    case SIGN_UP.success:
+    case LOGIN_WITH_GOOGLE.success:
+      history.replaceState(null, null, '');
       const { payload } = action;
       localStorage.setItem('jwt', payload.jwt);
       localStorage.setItem('jwt-expiration', payload.exp);
       return Object.assign({}, state, { loggedIn: true });
+    case LOGIN_WITH_GOOGLE.failure:
+      history.replaceState(null, null, '');
+      return state;
     case AUTHORIZATION_FAILURE:
       localStorage.removeItem('jwt');
       localStorage.removeItem('jwt-expiration');

@@ -16,6 +16,7 @@ module.exports = {
     }
   },
   output: {
+    publicPath: '/',
     path: path.resolve(__dirname, 'build'),
     filename: 'index.bundle.[hash].js'
   },

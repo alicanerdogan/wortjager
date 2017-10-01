@@ -6,13 +6,13 @@ import UserManagement from 'Components/UserManagement';
 
 export default class App extends PureComponent {
   render() {
-    const { loggedIn, signUp, login } = this.props;
+    const { loggedIn, signUp, login, loginWithGoogle } = this.props;
     return (
       <div className="app-root">
         <Header />
         <main>
           <div className="container">
-            {loggedIn ? <Question /> : <UserManagement signUp={signUp} login={login} />}
+            {loggedIn ? <Question /> : <UserManagement signUp={signUp} login={login} loginWithGoogle={loginWithGoogle} />}
           </div>
         </main>
       </div>

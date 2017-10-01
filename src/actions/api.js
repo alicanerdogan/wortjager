@@ -1,5 +1,5 @@
 import { createRESTCallAction, createAuthorizedRESTAction } from 'Util/rest';
-import { GET_WORD, SEND_ANSWER, LOGIN, SIGN_UP, GET_QUESTION } from './';
+import { GET_WORD, SEND_ANSWER, LOGIN, SIGN_UP, GET_QUESTION, LOGIN_WITH_GOOGLE } from './';
 
 const HOSTNAME = '/api';
 
@@ -28,15 +28,20 @@ export function signUp(email, password) {
 }
 
 export function login(email, password) {
-  return dispatch =>
-    createRESTCallAction(LOGIN, `${HOSTNAME}/sessions`, 'POST', {
-      body: {
-        email,
-        password
-      }
-    })(dispatch).then(payload => {
-      return payload;
-    });
+  return createRESTCallAction(LOGIN, `${HOSTNAME}/sessions`, 'POST', {
+    body: {
+      email,
+      password
+    }
+  });
+}
+
+export function loginWithGoogle(code) {
+  return createRESTCallAction(LOGIN_WITH_GOOGLE, `${HOSTNAME}/auth/google`, 'POST', {
+    body: {
+      code
+    }
+  });
 }
 
 export function getQuestion(email, password) {
