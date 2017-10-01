@@ -12,7 +12,11 @@ export default class App extends PureComponent {
         <Header />
         <main>
           <div className="container">
-            {loggedIn ? <Question /> : <UserManagement signUp={signUp} login={login} loginWithGoogle={loginWithGoogle} />}
+            {loggedIn ? (
+              <Question />
+            ) : (
+              <UserManagement signUp={signUp} login={login} loginWithGoogle={loginWithGoogle} />
+            )}
           </div>
         </main>
       </div>

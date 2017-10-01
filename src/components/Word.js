@@ -51,9 +51,7 @@ export default class Word extends PureComponent {
 
     return (
       <div className="word">
-        <p>
-          {this.getQuestion(word, qType)}
-        </p>
+        <p>{this.getQuestion(word, qType)}</p>
         {this.getInput(qType)}
         {this.state.correct === true && <p>YAY</p>}
         {this.state.correct === false && <p>NAY</p>}

@@ -13,11 +13,7 @@ function mapToHeader(word) {
 function mapToProps(word) {
   switch (word.type) {
     case 'noun':
-      return (
-        <p>
-          {`(${word.props.plural})`}
-        </p>
-      );
+      return <p>{`(${word.props.plural})`}</p>;
     case 'verb':
       return (
         <div>
@@ -45,17 +41,11 @@ export default class Answer extends PureComponent {
     const { word, isAnswerCorrect, getQuestion } = this.props;
     return (
       <div className="answer">
-        <h2 className={isAnswerCorrect ? 'correct' : 'wrong'}>
-          {isAnswerCorrect ? 'Richtig' : 'Falsch'}
-        </h2>
-        <h4 className="header">
-          {mapToHeader(word)}
-        </h4>
+        <h2 className={isAnswerCorrect ? 'correct' : 'wrong'}>{isAnswerCorrect ? 'Richtig' : 'Falsch'}</h2>
+        <h4 className="header">{mapToHeader(word)}</h4>
         <div className="props">
           {mapToProps(word)}
-          <p className="translations">
-            {`"${word.translations.join(', ')}"`}
-          </p>
+          <p className="translations">{`"${word.translations.join(', ')}"`}</p>
         </div>
         <AutoButton
           ref="skip"

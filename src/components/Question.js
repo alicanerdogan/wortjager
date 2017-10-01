@@ -15,9 +15,11 @@ export default class Question extends PureComponent {
     }
     return (
       <div className="question">
-        {isAnswerCorrect === null
-          ? <Word word={word} qType={questionType} sendAnswer={sendAnswer} />
-          : <Answer word={word} isAnswerCorrect={isAnswerCorrect} getQuestion={getQuestion} />}
+        {isAnswerCorrect === null ? (
+          <Word word={word} qType={questionType} sendAnswer={sendAnswer} />
+        ) : (
+          <Answer word={word} isAnswerCorrect={isAnswerCorrect} getQuestion={getQuestion} />
+        )}
       </div>
     );
   }

@@ -10,11 +10,11 @@ export default class UserMenu extends PureComponent {
   show() {
     this.setState(() => ({ isVisible: true }));
   }
-  
+
   hide() {
     this.setState(() => ({ isVisible: false }));
   }
-  
+
   render() {
     const { isVisible } = this.state;
     if (!isVisible) return null;
@@ -22,10 +22,12 @@ export default class UserMenu extends PureComponent {
     const { logout } = this.props;
     return (
       <div>
-        <div className="user-menu-overlay" onClick={() => this.hide()}/>
+        <div className="user-menu-overlay" onClick={() => this.hide()} />
         <div className="user-menu">
           <ul>
-            <li><button onClick={logout}>Logout</button></li>
+            <li>
+              <button onClick={logout}>Logout</button>
+            </li>
           </ul>
         </div>
       </div>
