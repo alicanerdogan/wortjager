@@ -36,7 +36,7 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --hot --inline",
+    "start": "webpack-dev-server --config webpack.config.dev.js --hot --inline",
     "start-prod": "webpack-dev-server --config webpack.config.prod.js",
     "build": "webpack --config webpack.config.prod.js",
     "format": "prettier --write --print-width 120 --single-quote \"src/**/*.js\"",

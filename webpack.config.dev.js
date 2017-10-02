@@ -3,13 +3,8 @@ const defaultConfig = require('./webpack.config');
 
 defaultConfig.plugins = defaultConfig.plugins.concat([
   new webpack.EnvironmentPlugin({
-    NODE_ENV: 'production'
-  }),
-  new webpack.optimize.UglifyJsPlugin({
-    sourceMap: true
-  })
+    NODE_ENV: 'development'
+  })  
 ]);
-
-defaultConfig.devtool = 'source-map';
 
 module.exports = defaultConfig;

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { GOOGLE_OAUTH_URI } from 'Configurations/runtime';
 
 export default class UserManagement extends PureComponent {
   constructor(props) {
@@ -74,7 +75,7 @@ class Login extends PureComponent {
         </button>
         <a
           className="btn btn-secondary btn-block"
-          href="https://accounts.google.com/o/oauth2/auth?client_id=891278828941-48vpaqffj33orudas47ug1erfqo38vir.apps.googleusercontent.com&scope=email&response_type=code&redirect_uri=https://wortjager.petprojects.info/auth/google"
+          href={GOOGLE_OAUTH_URI}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

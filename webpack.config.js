@@ -61,7 +61,6 @@ module.exports = {
       Actions: path.resolve(__dirname, 'src/actions/'),
       Assets: path.resolve(__dirname, 'src/assets/'),
       Components: path.resolve(__dirname, 'src/components/'),
-      Config: path.resolve(__dirname, 'src/config/'),
       Configurations: path.resolve(__dirname, 'src/configurations/'),
       Containers: path.resolve(__dirname, 'src/containers/'),
       Img: path.resolve(__dirname, 'src/img/'),
