@@ -36,6 +36,9 @@ export default class Word extends PureComponent {
   }
 
   getQuestion(word, qType) {
+    if (qType === 'content') {
+      return `What word may mean "${word.translations.join(', ')}" in German?`;
+    }
     return `What is the ${qType} for "${this.getHint(word, qType)}"?`;
   }
 

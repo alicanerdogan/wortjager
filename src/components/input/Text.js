@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-export default class Verb extends PureComponent {
+export default class Text extends PureComponent {
   componentDidMount() {
     this.refs.answer.focus();
   }
